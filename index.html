@@ -1,0 +1,93 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GATE RANKERS </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .best-student {
+            background-color: #dff0d8; /* Light green background for best student */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Details</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Grade</th>
+                    <th>Rank</th>
+                </tr>
+            </thead>
+            <tbody id="studentTable">
+                <!-- Student details will be populated here -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // Sample student data
+        const students = [
+            { name: "Alice Johnson", grade: 95, rank: 1 },
+            { name: "Bob Smith", grade: 88, rank: 2 },
+            { name: "Charlie Brown", grade: 85, rank: 3 },
+            { name: "Diana Prince", grade: 90, rank: 4 },
+            { name: "Ethan Hunt", grade: 92, rank: 5 }
+        ];
+        // Function to display student details
+        function displayStudents() {
+            const studentTable = document.getElementById('studentTable');
+            students.forEach(student => {
+                const row = document.createElement('tr');
+                if (student.rank === 1) {
+                    row.classList.add('best-student'); // Highlight the best student
+                }
+                row.innerHTML = `
+                    <td>${student.name}</td>
+                    <td>${student.grade}</td>
+                    <td>${student.rank}</td>
+                `;
+                studentTable.appendChild(row);
+            });
+        }
+        // Call the function to display students
+        displayStudents();
+    </script>
+
+
+</body>
+
+</html>
